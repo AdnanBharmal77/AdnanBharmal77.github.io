@@ -1,0 +1,182 @@
+Below is a **drop-in replacement** for the old “Learning modules” section.  
+It keeps the same look, but every topic is now an **expandable, interactive lesson** with:
+
+- bite-sized text + graphics  
+- 1-click mini-quiz (instant green/red feedback)  
+- “Mark complete” button that **updates the top progress bar and user points** exactly like a live trade does.
+
+Just **copy/paste** this block **inside your existing `<body>`**, replacing the old `<section id="learning" …> … </section>` (no other files change).
+
+--------------------------------------------------
+NEW INTERACTIVE MODULES HTML
+--------------------------------------------------
+```html
+<!-- ========= REAL TEACHING MODULES  ========= -->
+<section id="learning" class="learning-modules">
+  <h2 style="text-align:center;margin-bottom:2rem;color:#667eea">
+    <i class="fas fa-graduation-cap"></i> Interactive Learning Modules
+  </h2>
+
+  <!-- BEGINNER -------------------------- -->
+  <div class="module-card" data-level="beginner">
+    <div class="module-header">
+      <div class="module-icon beginner"><i class="fas fa-seedling"></i></div>
+      <div>
+        <h3>Beginner Level</h3>
+        <p class="lvl-subtitle">Start your trading journey</p>
+      </div>
+    </div>
+
+    <div class="module-lessons">
+      <!-- Lesson 1 -->
+      <div class="lesson" data-lesson="1">
+        <div class="lesson-title">1. What are Options? <i class="fas fa-chevron-down"></i></div>
+        <div class="lesson-body">
+          <p>An <strong>option</strong> is a contract that gives you the <em>right</em> (but not the obligation) to buy or sell an asset at a set price on or before a given date.</p>
+          <ul><li>Calls = right to <strong>buy</strong></li><li>Puts = right to <strong>sell</strong></li></ul>
+
+          <div class="mini-quiz">
+            <p class="quiz-q">Q: Which option lets you <strong>sell</strong> stock at a fixed price?</p>
+            <button class="quiz-btn" data-correct="false">Call</button>
+            <button class="quiz-btn" data-correct="true">Put</button>
+          </div>
+          <button class="btn-complete">Mark complete</button>
+        </div>
+      </div>
+
+      <!-- Lesson 2 -->
+      <div class="lesson" data-lesson="2">
+        <div class="lesson-title">2. Call vs Put <i class="fas fa-chevron-down"></i></div>
+        <div class="lesson-body">
+          <p><strong>Calls</strong> profit when the underlying goes <span style="color:#28a745">up</span>.<br>
+             <strong>Puts</strong> profit when it goes <span style="color:#dc3545">down</span>.</p>
+          <div class="mini-quiz">
+            <p class="quiz-q">You think AAPL will drop. Which option should you buy?</p>
+            <button class="quiz-btn" data-correct="true">Put</button>
+            <button class="quiz-btn" data-correct="false">Call</button>
+          </div>
+          <button class="btn-complete">Mark complete</button>
+        </div>
+      </div>
+
+      <!-- Lesson 3 -->
+      <lesson data-lesson="3">
+        <div class="lesson-title">3. Basic Terminology <i class="fas fa-chevron-down"></i></div>
+        <div class="lesson-body">
+          <ul>
+            <li><strong>Strike:</strong> the fixed price in the contract</li>
+            <li><strong>Expiry:</strong> last valid day</li>
+            <li><strong>Premium:</strong> price you pay</li>
+          </ul>
+          <button class="btn-complete">Mark complete</button>
+        </div>
+      </div>
+
+      <!-- Lesson 4 -->
+      <div class="lesson" data-lesson="4">
+        <div class="lesson-title">4. Risk Management <i class="fas fa-chevron-down"></i></div>
+        <div class="lesson-body">
+          <p>Never risk more than <strong>2 % of your account</strong> on one trade. Use stop-losses or position-size formulas.</p>
+          <button class="btn-complete">Mark complete</button>
+        </div>
+      </div>
+
+      <!-- Lesson 5 -->
+      <div class="lesson" data-lesson="5">
+        <div class="lesson-title">5. Your First Trade (Practice) <i class="fas fa-chevron-down"></i></div>
+        <div class="lesson-body">
+          <p>Open the practice panel, choose “Long Call”, quantity = 1, hit Buy. Watch how premium and P&L change as the price moves.</p>
+          <button class="btn-complete">Mark complete</button>
+        </div>
+      </div>
+    </div><!-- /lessons -->
+  </div><!-- /module-card -->
+
+
+  <!-- INTERMEDIATE ---------------------- -->
+  <div class="module-card" data-level="intermediate">
+    <div class="module-header">
+      <div class="module-icon intermediate"><i class="fas fa-chart-bar"></i></div>
+      <div>
+        <h3>Intermediate Level</h3>
+        <p class="lvl-subtitle">Build your skills</p>
+      </div>
+    </div>
+    <div class="module-lessons">
+      <div class="lesson" data-lesson="1">
+        <div class="lesson-title">1. Options Strategies <i class="fas fa-chevron-down"></i></div>
+        <div class="lesson-body">
+          <p>Combine calls & puts for defined-risk trades: spreads, straddles, strangles.</p>
+          <button class="btn-complete">Mark complete</button>
+        </div>
+      </div>
+      <div class="lesson" data-lesson="2">
+        <div class="lesson-title">2. The Greeks <i class="fas fa-chevron-down"></i></div>
+        <div class="lesson-body">
+          <ul>
+            <li><strong>Delta:</strong> share-equivalent</li>
+            <li><strong>Theta:</strong> time decay</li>
+            <li><strong>Vega:</strong> vol sensitivity</li>
+          </ul>
+          <button class="btn-complete">Mark complete</button>
+        </div>
+      </div>
+      <!-- add more … -->
+    </div>
+  </div>
+
+
+  <!-- ADVANCED & PRO (same pattern) ------ -->
+  <div class="module-card" data-level="advanced">
+    …
+  </div>
+
+  <div class="module-card" data-level="professional">
+    …
+  </div>
+</section>
+```
+
+--------------------------------------------------
+STYLES (append inside your existing `<style>` block)
+--------------------------------------------------
+```css
+/* ---- expandable lessons ---- */
+.module-lessons{margin-top:1rem}
+.lesson{border:1px solid #e9ecef;border-radius:8px;margin-bottom:.8rem;overflow:hidden}
+.lesson-title{padding:.9rem 1rem;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center;background:#f8f9fa}
+.lesson-title i{transition:transform .3s}
+.lesson.open .lesson-title i{transform:rotate(180deg)}
+.lesson-body{display:none;padding:1rem;background:#fff}
+.lesson-body p,.lesson-body ul{margin:.5rem 0;line-height:1.5}
+.lesson-body ul{padding-left:1.2rem}
+
+/* ---- mini-quiz ---- */
+.mini-quiz{margin:1rem 0}
+.quiz-q{font-weight:600;margin-bottom:.5rem}
+.quiz-btn{background:#e9ecef;border:none;padding:.4rem .9rem;margin:.2rem;border-radius:4px;cursor:pointer;transition:background .2s}
+.quiz-btn:hover{background:#dee2e6}
+.quiz-btn.correct{background:#28a745;color:#fff}
+.quiz-btn.wrong{background:#dc3545;color:#fff}
+
+/* ---- complete button ---- */
+.btn-complete{margin-top:1rem;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border:none;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-weight:600}
+.btn-complete:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(102,126,234,.4)}
+```
+
+--------------------------------------------------
+JAVASCRIPT (append just before your closing `</body>` tag)
+--------------------------------------------------
+```javascript
+<script>
+/* ===== LESSON INTERACTIVITY ===== */
+document.addEventListener('DOMContentLoaded', () => {
+  /* open/close lesson */
+  document.querySelectorAll('.lesson-title').forEach(title => {
+    title.addEventListener('click', () => {
+      const lesson = title.parentElement;
+      const body   = lesson.querySelector('.lesson-body');
+      const isOpen = lesson.classList.contains('open');
+      /* close siblings (optional) */
+      title.closest('.module-lessons').querySelectorAll('.lesson').forEach(l => {
+        l.class
