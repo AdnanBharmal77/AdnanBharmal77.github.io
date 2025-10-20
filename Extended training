@@ -1,0 +1,46 @@
+/* ---- expandable lessons ---- */
+.module-lessons{margin-top:1rem}
+.lesson{border:1px solid #e9ecef;border-radius:8px;margin-bottom:.8rem;overflow:hidden}
+.lesson-title{padding:.9rem 1rem;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center;background:#f8f9fa}
+.lesson-title i{transition:transform .3s}
+.lesson.open .lesson-title i{transform:rotate(180deg)}
+.lesson-body{display:none;padding:1rem;background:#fff}
+.lesson-body p,.lesson-body ul{margin:.5rem 0;line-height:1.5}
+.lesson-body ul{padding-left:1.2rem}
+
+/* ---- mini-quiz ---- */
+.mini-quiz{margin:1rem 0}
+.quiz-q{font-weight:600;margin-bottom:.5rem}
+.quiz-btn{background:#e9ecef;border:none;padding:.4rem .9rem;margin:.2rem;border-radius:4px;cursor:pointer;transition:background .2s}
+.quiz-btn:hover{background:#dee2e6}
+.quiz-btn.correct{background:#28a745;color:#fff}
+.quiz-btn.wrong{background:#dc3545;color:#fff}
+
+/* ---- complete button ---- */
+.btn-complete{margin-top:1rem;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border:none;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-weight:600}
+.btn-complete:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(102,126,234,.4)}
+<script>
+/* ===== LESSON INTERACTIVITY ===== */
+document.addEventListener('DOMContentLoaded', () => {
+  /* open/close lesson */
+  document.querySelectorAll('.lesson-title').forEach(title => {
+    title.addEventListener('click', () => {
+      const lesson = title.parentElement;
+      const body   = lesson.querySelector('.lesson-body');
+      const isOpen = lesson.classList.contains('open');
+      /* close siblings (optional) */
+      title.closest('.module-lessons').querySelectorAll('.lesson').forEach(l => {
+        l.class
+/* update user points (same function you already have) */
+  userPoints += 50;
+  document.getElementById('userPoints').textContent = userPoints.toLocaleString();
+
+  /* bump global progress */
+  progress = Math.min(progress + 4, 100);
+  updateProgress(progress);
+
+  /* optional toast */
+  showNotification('Lesson completed! +50 pts', 'success');
+});
+Save → refresh → click any lesson title.  
+Each “Mark complete” pushes the **top progress bar forward** and adds **50 points** to the user score, so learners actually **see** advancement after every topic.
